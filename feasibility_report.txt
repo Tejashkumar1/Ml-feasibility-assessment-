@@ -1,0 +1,49 @@
+ML FEASIBILITY ASSESSMENT
+=============================================
+
+Business question: Should we build an ML model to predict
+whether a student will Pass or Fail?
+
+1. DATASET SIZE
+------------------------------
+Rows: 117
+Columns: 12
+Minimum rows usually needed: 500
+Meets size requirement: False
+
+2. LABEL BALANCE
+------------------------------
+Pass: 86 students (73.5%)
+Fail: 31 students (26.5%)
+Balanced enough: True
+
+3. LABEL CIRCULARITY CHECK
+------------------------------
+A simple rule (any subject below 33 = Fail) matches
+the real label 100.0% of the time.
+
+This means the label can already be worked out with a simple
+rule. There is nothing extra for ML to learn here.
+
+4. SIGNAL STRENGTH (Attendance)
+------------------------------
+Attendance to marks correlation: 0.155
+Variance explained by attendance: 2.4%
+
+5. FINAL VERDICT
+------------------------------
+RECOMMENDATION: NO-GO. ML is not justified right now.
+
+Reasons:
+- Only 117 rows available, below the 500 row guideline.
+- The Pass/Fail label can be worked out perfectly with a simple rule,
+  so there is nothing for a model to learn beyond that rule.
+- Attendance alone does not explain enough of the variation
+  in marks to be useful for prediction.
+
+Recommended path instead:
+- Keep using the simple rule-based system from Project 2.
+  It is 100% accurate and easy to explain.
+- Revisit ML only if new data is collected that exists BEFORE
+  the final marks, such as quiz scores or assignment activity.
+- Also revisit once the dataset grows past around 500 rows.
